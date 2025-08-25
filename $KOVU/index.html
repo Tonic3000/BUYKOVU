@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="banner">
+      <img src="kovu banner.jpg" alt="" />
+    </div>
+    <img class="ban2" src="pic1.jpg" alt="" />
+    <header>
+      <div class="wrapped">
+        <details class="drop">
+          <summary class="drpbtn">MENU</summary>
+          <div class="content">
+            <a
+              href="https://jup.ag/tokens/6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump"
+              >CHART</a
+            >
+            <a href="https://www.tiktok.com/@kovubp?_t=ZT-8yqHaTYbsYY&_r=1"
+              >TIKTOK</a
+            >
+            <a href="https://x.com/kovuonsolana?s=11">TWITTER</a>
+            <a href="https://t.me/kovumemess">TELEGRAM</a>
+            <a href="https://x.com/i/communities/1955660884715401343"
+              >COMMUNITY</a
+            >
+          </div>
+        </details>
+        <nav>
+          <a
+            href="https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&buy=6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump"
+            >BUY $KOVU</a
+          >
+        </nav>
+      </div>
+      <div class="text">
+        <h1>MEET KOVU</h1>
+        <h3>The Viral Red Siberian Husky</h3>
+        <p>6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump</p>
+      </div>
+      <hr />
+    </header>
+    <section id="viral">
+      <div class="heading-text">
+        <h2>TRENDING HUSKY</h2>
+        <p>Breaking the Internet One Outfit at a Time</p>
+      </div>
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-wrap">
+          <video preload="metadata">
+            <source src="IMG_3500.MP4" type="video/mp4" />
+          </video>
+          <div class="video-text">46.5M VIEWS &#9679; 7M LIKES</div>
+          <button class="play-btn">▶</button>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-wrap">
+          <video preload="metadata">
+            <source src="IMG_3502.MP4" type="video/mp4" />
+          </video>
+          <div class="video-text">166.7M VIEWS &#9679; 22.3M LIKES</div>
+          <button class="play-btn">▶</button>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-wrap">
+          <video preload="metadata">
+            <source src="IMG_3501.MP4" type="video/mp4" />
+          </video>
+          <div class="video-text">41.3M VIEWS &#9679; 6.1M LIKES</div>
+          <button class="play-btn">▶</button>
+        </div>
+      </div>
+
+      <div class="ending-text">
+        <h2>Follow <span>@kovubp </span>on TikTok</h2>
+      </div>
+      <hr class="second" />
+    </section>
+    <section id="buypg">
+      <div class="buy-text">
+        <h2>HOW TO BUY</h2>
+        <p>All it Takes is 3 simple step</p>
+      </div>
+      <div class="container">
+        <div class="rectangle">
+          <h2>1. Get a Phantom Wallet</h2>
+          <p>
+            You can download and create your Phantom wallet on your phone or web
+            browser for free.
+          </p>
+          <a href="https://phantom.com/download">DOWNLOAD HERE</a>
+        </div>
+        <div class="rectangle">
+          <h2>2. Buy Some Solana.</h2>
+          <p>
+            Now you need to deposit or buy Solana inside the Phantom wallet app.
+          </p>
+          <a
+            href="https://phantom.com/learn/guides/how-to-buy-ethereum-eth-polygon-matic-and-solana-sol"
+            >LEARN HOW</a
+          >
+        </div>
+        <div class="rectangle">
+          <h2>3. Buy $KOVU</h2>
+          <p>
+            You can buy $KORI by searching for it in the search bar, pasting the
+            token address or by using another Solana exchangle platform
+          </p>
+          <a
+            href="https://phantom.com/tokens/solana/6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump?referralId=iwz13x768no"
+            >BUY HERE</a
+          >
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p>
+        Disclaimer: $KOVU is a community-driven memecoin with no intrinsic
+        value, expectation of financial return, or association with any company
+        or entity. Cryptocurrency investments are highly volatile and risky.
+        Always do your own research (DYOR) before making any financial
+        decisions. We are not responsible for any losses.
+      </p>
+    </footer>
+  </body>
+  <script>
+    document.querySelectorAll(".video-wrap").forEach((wrap) => {
+      const video = wrap.querySelector("video");
+      const playBtn = wrap.querySelector(".play-btn");
+
+      playBtn.addEventListener("click", () => {
+        // Pause other videos when a new one plays
+        document.querySelectorAll("video").forEach((v) => {
+          if (v !== video) {
+            v.pause();
+          }
+        });
+
+        video.play();
+        playBtn.classList.add("hidden");
+      });
+
+      video.addEventListener("pause", () => {
+        playBtn.classList.remove("hidden");
+      });
+
+      video.addEventListener("ended", () => {
+        playBtn.classList.remove("hidden");
+      });
+    });
+  </script>
+</html>
