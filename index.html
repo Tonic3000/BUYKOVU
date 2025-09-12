@@ -11,6 +11,23 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Smooth scrolling globally */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Animation setup */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body>
     <div class="banner">
@@ -22,6 +39,8 @@
         <details class="drop">
           <summary class="drpbtn">MENU</summary>
           <div class="content">
+            <a href="#viral">TRENDING</a>
+            <a href="#buypg">HOW TO BUY</a>
             <a
               href="https://jup.ag/tokens/6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump"
               >CHART</a
@@ -43,21 +62,21 @@
           >
         </nav>
       </div>
-      <div class="text">
+      <div class="text fade-in">
         <h1>MEET KOVU</h1>
         <h3>The Viral Red Siberian Husky</h3>
         <p>6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump</p>
       </div>
       <hr />
     </header>
-    <section id="viral">
+    <section id="viral" class="fade-in">
       <div class="heading-text">
         <h2>TRENDING HUSKY</h2>
         <p>Breaking the Internet One Outfit at a Time</p>
       </div>
       <div class="video-grid">
         <!-- Video 1 -->
-        <div class="video-wrap">
+        <div class="video-wrap fade-in">
           <video preload="metadata" poster="002thumb.jpg">
             <source src="IMG_3500.MP4" type="video/mp4" />
           </video>
@@ -66,7 +85,7 @@
         </div>
 
         <!-- Video 2 -->
-        <div class="video-wrap">
+        <div class="video-wrap fade-in">
           <video preload="metadata" poster="000thumb.jpg">
             <source src="IMG_3502.MP4" type="video/mp4" />
           </video>
@@ -75,7 +94,7 @@
         </div>
 
         <!-- Video 3 -->
-        <div class="video-wrap">
+        <div class="video-wrap fade-in">
           <video preload="metadata" poster="001thumb.jpg">
             <source src="IMG_3501.MP4" type="video/mp4" />
           </video>
@@ -84,18 +103,18 @@
         </div>
       </div>
 
-      <div class="ending-text">
+      <div class="ending-text fade-in">
         <h2>Follow <span>@kovubp </span>on TikTok</h2>
       </div>
       <hr class="second" />
     </section>
-    <section id="buypg">
+    <section id="buypg" class="fade-in">
       <div class="buy-text">
         <h2>HOW TO BUY</h2>
         <p>All it Takes is 3 simple step</p>
       </div>
       <div class="container">
-        <div class="rectangle">
+        <div class="rectangle fade-in">
           <h2>1. Get a Phantom Wallet</h2>
           <p>
             You can download and create your Phantom wallet on your phone or web
@@ -103,7 +122,7 @@
           </p>
           <a href="https://phantom.com/download">DOWNLOAD HERE</a>
         </div>
-        <div class="rectangle">
+        <div class="rectangle fade-in">
           <h2>2. Buy Some Solana.</h2>
           <p>
             Now you need to deposit or buy Solana inside the Phantom wallet app.
@@ -113,11 +132,11 @@
             >LEARN HOW</a
           >
         </div>
-        <div class="rectangle">
+        <div class="rectangle fade-in">
           <h2>3. Buy $KOVU</h2>
           <p>
             You can buy $KOVU by searching for it in the search bar, pasting the
-            token address or by using another Solana exchangle platform
+            token address or by using another Solana exchange platform.
           </p>
           <a
             href="https://phantom.com/tokens/solana/6kreK2oNJpVweA4wXA5vUsyhtcXxDhANRk1w3BbCpump?referralId=iwz13x768no"
@@ -126,7 +145,7 @@
         </div>
       </div>
     </section>
-    <footer class="footer">
+    <footer class="footer fade-in">
       <p>
         Disclaimer: $KOVU is a community-driven memecoin with no intrinsic
         value, expectation of financial return, or association with any company
@@ -137,12 +156,12 @@
     </footer>
   </body>
   <script>
+    // Video Play Button Logic
     document.querySelectorAll(".video-wrap").forEach((wrap) => {
       const video = wrap.querySelector("video");
       const playBtn = wrap.querySelector(".play-btn");
 
       playBtn.addEventListener("click", () => {
-        // Pause other videos when a new one plays
         document.querySelectorAll("video").forEach((v) => {
           if (v !== video) {
             v.pause();
@@ -160,6 +179,28 @@
       video.addEventListener("ended", () => {
         playBtn.classList.remove("hidden");
       });
+    });
+
+    // Scroll Animation with Intersection Observer
+    const faders = document.querySelectorAll(".fade-in");
+    const appearOptions = {
+      threshold: 0.2,
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      observer
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      });
+    },
+    appearOptions);
+
+    faders.forEach((fader) => {
+      appearOnScroll.observe(fader);
     });
   </script>
 </html>
